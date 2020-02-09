@@ -15,7 +15,7 @@ battery pinout:
                  
                  + +       SCL SDA  T? GND GND
 
-vga pinout:                15   12          5 
+ vga pinout:                15   12          5 
 
 
 
