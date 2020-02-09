@@ -15,7 +15,7 @@ the chip on my battery is a bq8030 with sanyo firmware.
                  
                   + +       SCL SDA  T? GND GND
 
-	vga pinout:               15   12          5 
+	vga pinout:         15   12          5 
 
 
 
