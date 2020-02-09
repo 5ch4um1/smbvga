@@ -1,6 +1,6 @@
 # smbvga
 
-goal of this project is to learn more about the dead battery of my laptop. (and maybe "how set my house on fire")
+goal of this project is to learn more about the dead battery of my laptop. (and maybe "how to set my house on fire")
 
 i found out that i can plug 3 cables into the vga port of my laptop and talk to the battery via i2c-tools on linux.
 
