@@ -9,13 +9,13 @@ primary source of information so far has been the blog karosium.com
 so far, i managed to get into (what i believe is) full access mode.
 the chip on my battery is a bq8030 with sanyo firmware.
 
-battery pinout:
+	battery pinout:
 
-                 |  |       |   |   |   |   | 
+                  |  |       |   |   |   |   | 
                  
-                 + +       SCL SDA  T? GND GND
+                  + +       SCL SDA  T? GND GND
 
- vga pinout:                15   12          5 
+	vga pinout:               15   12          5 
 
 
 
