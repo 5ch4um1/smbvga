@@ -24,3 +24,27 @@ if your distro has it in the repos:
 
 sudo apt-get install i2c-tools
 
+
+
+	sudo i2cdetect -l
+	i2c-3	i2c       	i915 gmbus dpc                  	I2C adapter
+	i2c-1	i2c       	i915 gmbus vga                  	I2C adapter
+	i2c-6	i2c       	DPDDC-B                         	I2C adapter
+	i2c-4	i2c       	i915 gmbus dpb                  	I2C adapter
+	i2c-2	i2c       	i915 gmbus panel                	I2C adapter
+	i2c-0	i2c       	i915 gmbus ssc                  	I2C adapter
+	i2c-7	i2c       	DPDDC-D                         	I2C adapter
+	i2c-5	i2c       	i915 gmbus dpd                  	I2C adapter
+	
+	
+		sudo i2cdetect -y 1
+	     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+	00:          -- -- -- -- -- -- -- -- 0b -- -- -- -- 
+	10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+	70: -- -- -- -- -- -- -- --
+	
