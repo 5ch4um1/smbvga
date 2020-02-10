@@ -1,0 +1,68 @@
+  i can write stuff to 0x40.
+  this effectively changes the manufacturer name. 
+  i tried different things:
+  
+     1237  sudo i2cset -y 1 0x0b 0x40 0x0000 w
+     1238  sudo i2cset -y 1 0x0b 0x40 0x0001 w
+     1239  sudo i2cset -y 1 0x0b 0x40 0x0010 w
+     1240  sudo i2cset -y 1 0x0b 0x40 0x0100 w
+     1241  sudo i2cset -y 1 0x0b 0x40 0x1000 w
+     1242  sudo i2cset -y 1 0x0b 0x40 0x000f w
+     1243  sudo i2cset -y 1 0x0b 0x40 0x00ff w
+     1244  sudo i2cset -y 1 0x0b 0x40 0x000f w
+     1245  sudo i2cset -y 1 0x0b 0x40 0x1000 w
+
+     __________________________________________________-
+
+     sudo i2cdump -y -r 0x40-0x80 1 0x0b w
+       0,8  1,9  2,a  3,b  4,c  5,d  6,e  7,f
+  40: 1717 XXXX 00fa fa20 XXXX XXXX XXXX XXXX 
+
+
+then a:
+
+   sudo i2cset -y 1 0x0b 0x40 0x0000 w
+ 
+ gives:
+ 
+    0,8  1,9  2,a  3,b  4,c  5,d  6,e  7,f
+  40: 1717 XXXX 0003 0320 XXXX XXXX XXXX XXXX 
+
+
+or reading everything:
+
+before the write: 
+
+  sudo i2cdump -y -r 0x00-0x80 1 0x0b w
+       0,8  1,9  2,a  3,b  4,c  5,d  6,e  7,f
+  00: b002 01e8 000a e000 0000 ffff ffff ffff 
+  08: 0b82 235e 0000 0000 0000 0000 0000 0000 
+  10: 084d 0000 0000 ffff 0000 0000 0bd0 0080 
+  18: 1314 2b5c 0031 3c3c 081e XXXX XXXX XXXX 
+  20: 5308 4c08 4c04 420e XXXX XXXX XXXX XXXX 
+  28: XXXX XXXX XXXX XXXX XXXX XXXX XXXX 310b 
+  30: 0d0a a910 c810 0018 XXXX XXXX XXXX XXXX 
+  38: XXXX XXXX XXXX 0b84 4c0a 0000 0001 0000 
+  40: 1717 XXXX 0000 0020 XXXX XXXX XXXX XXXX
+
+
+after: 
+
+  0,8  1,9  2,a  3,b  4,c  5,d  6,e  7,f
+  00: b002 01e8 000a e000 0000 ffff ffff ffff 
+  08: 0b83 234a 0000 0000 0000 0000 0000 0000 
+  10: 084d 0000 0000 ffff 0000 0000 0bd0 0080 
+  18: 1314 2b5c 0031 3c3c 081e XXXX XXXX XXXX 
+  20: 5308 4c08 4c04 420e XXXX XXXX XXXX XXXX 
+  28: XXXX XXXX XXXX XXXX XXXX XXXX XXXX 310b 
+  30: 0d0a a910 c810 0018 XXXX XXXX XXXX XXXX 
+  38: XXXX XXXX XXXX 0b84 4c0a 0000 0001 0000 
+  40: 1717 XXXX 0003 0320 XXXX XXXX XXXX XXXX
+
+so this changed also 0x09 and 0x0a
+
+when i then plug the battery into the laptop, it displays a different manufacturer name, 
+either Sanyo or Compal.
+
+
+
