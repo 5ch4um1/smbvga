@@ -51,3 +51,8 @@ sudo apt-get install i2c-tools
 	60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 	70: -- -- -- -- -- -- -- --
 	
+also needs xxd, but i guess you already have that installed on your system.
+
+the scripts are for the above mentioned i2c bus and address.
+you can change this ONCE by running ./setup.sh
+after that, if you want to change again, you'd need to edit ./setup.sh (or maybe write a chsetup.sh...?)
