@@ -3,7 +3,7 @@
 DISCLAIMER: you should not mess with your battery, you might brick your battery, or even worse, your PC!
 better use an external i2c interface! your battery might explode. again, don't mess with your battery.
 
-goal of this project is to learn more about the dead battery of my laptop. (and maybe "how to set my house on fire")
+goal of this project is to learn more about the dead battery of my laptop. (and maybe "how to set my home on fire")
 
 i found out that i can plug 3 cables into the vga port of my laptop and talk to the battery via i2c-tools on linux.
 
@@ -55,4 +55,4 @@ also needs xxd, but i guess you already have that installed on your system.
 
 the scripts are for the above mentioned i2c bus and address.
 you can change this ONCE by running ./setup.sh
-after that, if you want to change again, you'd need to edit ./setup.sh (or maybe write a chsetup.sh...?)
+after that, if you want to change again, you'd need to edit ./setup.sh 
