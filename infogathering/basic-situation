@@ -1,0 +1,41 @@
+so, i got this laptop as a gift a few years ago, the battery was not charging when i got it.
+every time i connect the power cable while powered off the red charging led blinks 6 or 7 times, about 5-10 seconds, then it goes dark.
+if the laptop is running and i insert the battery, it blinks only 2 times.
+so the battery and laptop talk to each other, and after they figured out that something is wrong, 
+the laptop turns off the charger. blocking either one or both of scl and sda with a piece of plastic extends this time,
+to about about 30 seconds(?), probably until a timeout occurs?
+anyway, none of that charging current from the laptop seems to arrive at the battery now, before i started messing around with it, it would
+give a tiny but noticable increase, allthough it was just a few seconds charging. now, nothing. 
+and it also doesn't output anything, but i guess this always has been that way.
+
+interesting question here, what blocks the current? that 3 legged fuse? i tried to bridge that with a bit of solder.
+but then there are those nasty little things called mosfets? ( as far as i understood a switch that turns off if
+it's input voltage is too low).
+
+
+another funny thing, i am now unable to talk to the battery when it is outside the laptop.
+when plugged in, i can still read all the values, so i2c seems to work.
+cat /sys/class/power_supply/BAT1/voltage_now 
+7576000
+seems a bit low though, before it was around 9V. So i guess that microcontroller somehow needs power...
+the battery seems to be divided in to compartments of 1x2 and 1x4 cells. 
+i tried to charge it with an external charger, but now the voltage won't increase above a certain level, 
+so i guess what i was actually charging were only 2 of the 6 cells?
+at the moment i try to charge that 4 cell block directly, let's see if this helps.
+
+interesting thing to try:
+
+maybe sniff the communication that occurs between battery and laptop? i need a 2 channel soundcard, my mic-in
+only gives me one channel.or grab the two channels one after the other and later align them,
+hoping that the communication is always the same, and there is no clock stretch or things like that?
+what if the battery just answers with it's stats...? 
+what if we blocked the batterys i2c pins, fliped some bits in the signal, aka tell the laptop what it wants to hear,
+and replayed it to the laptop's EC? would it keep charging? 
+if i unplugged the cells and fed the controller with an external power source, would that work, like, could i talk to the chip?
+strange thing again, it won't charge, but it obviously takes power from the laptop to power the chip?
+maybe recell it? i still hope that i can somehow change things in full access mode...i just have this one battery,
+and if charlie miller is afraid of the boot rom mode, i should be terrorized i guess, so i'd like to avoid that if possible,
+or at least learn enough about this stuff to not brick the controller...
+
+
+and finally the question: why would anybody throw away a dead battery if you still can have so much fun with it? :D 
