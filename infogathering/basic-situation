@@ -1,12 +1,13 @@
 so, i got this laptop as a gift a few years ago, the battery was not charging when i got it.
-every time i connect the power cable while powered off the red charging led blinks 6 or 7 times, about 5-10 seconds, then it goes dark.
-if the laptop is running and i insert the battery, it blinks only 2 times.
+every time i connect the power cable while powered off the red charging led blinks 6 or 7 times, about 5-10 seconds, 
+then it goes dark. if the laptop is running and i insert the battery, it blinks only 2 times.
 so the battery and laptop talk to each other, and after they figured out that something is wrong, 
 the laptop turns off the charger. blocking either one or both of scl and sda with a piece of plastic extends this time,
 to about about 30 seconds(?), probably until a timeout occurs?
-anyway, none of that charging current from the laptop seems to arrive at the battery now, before i started messing around with it, it would
-give a tiny but noticable increase, allthough it was just a few seconds charging. now, nothing. 
-and it also doesn't output anything, but i guess this always has been that way.
+anyway, none of that charging current from the laptop seems to arrive at the battery now,
+before i started messing around with it, it would give a tiny but noticable increase,
+allthough it was just a few seconds charging. now, nothing. and it also doesn't output anything,
+but i guess this always has been that way.
 
 interesting question here, what blocks the current? that 3 legged fuse? i tried to bridge that with a bit of solder.
 but then there are those nasty little things called mosfets? ( as far as i understood a switch that turns off if
