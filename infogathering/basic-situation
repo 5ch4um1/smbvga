@@ -22,7 +22,11 @@ seems a bit low though, before it was around 9V. So i guess that microcontroller
 the battery seems to be divided in to compartments of 1x2 and 1x4 cells. 
 i tried to charge it with an external charger, but now the voltage won't increase above a certain level, 
 so i guess what i was actually charging were only 2 of the 6 cells?
-at the moment i try to charge that 4 cell block directly, let's see if this helps.
+at the moment i try to charge that 4 cell block directly, let's see if this helps. 
+
+(edit: seems it does help!cat /sys/class/power_supply/BAT1/voltage_now 
+8126000 , so i'll leave it charging some more time and see if the battery will talk to me again if voltage levels
+get high enough) 
 
 interesting thing to try:
 
