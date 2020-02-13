@@ -1,0 +1,8 @@
+random info:
+
+when i turned it into boot rom mode (or maybe it was in another, like, error mode?) and then plugged it into the laptop,
+the laptop turned off after a few seconds, so i guess it was running from battery?
+need to charge again and check that by plugging out the power supply!
+or maybe it just took it some time to realize: duuude, that battery has so many failure flags lit, if i don't 
+shut down immediately, everything 's gonna explode? but then, what took it so long to realize that? :D 
+
