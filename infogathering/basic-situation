@@ -28,6 +28,11 @@ at the moment i try to charge that 4 cell block directly, let's see if this help
 8126000 , so i'll leave it charging some more time and see if the battery will talk to me again if voltage levels
 get high enough) 
 
+(edit 2: it worked, had to charge both the 4-cell and the 2-cell block seperately, now i can talk to the chip again:
+sudo ./getvoltage.sh 
+Voltage is: 9.599 V )
+
+
 interesting thing to try:
 
 maybe sniff the communication that occurs between battery and laptop? i need a 2 channel soundcard, my mic-in
