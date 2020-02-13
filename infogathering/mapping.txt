@@ -25,3 +25,99 @@ the datasheet somehow suggets that you first specify the address you want to wri
  and then issue the actual write command by writing to another, i guess i have to read some datasheets again...
 or, simplified, if i want to write to address c, i first have to word write the address of c to b, then a write command + the 
 data i want to write to a? using i2ctransfer? so, might 0x40 be that address a?
+
+would that behaviour change in boot rom mode? like, a write just means "write that stuff!" ?
+
+
+now, this looks interesting: 
+
+      cat dumpi2cdump | grep -v Error
+
+       0000|  60 03 60 04 04 04 04 04   ff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0010|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0020|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0030|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0040|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0050|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0060|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0070|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0080|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0090|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       00a0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       00b0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       00c0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       00d0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       00e0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       00f0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0100|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0110|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0120|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0130|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0140|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0150|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0160|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0170|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0180|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0190|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       01a0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       01b0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       01c0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       01d0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       01e0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       01f0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0200|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0210|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0220|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0230|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0240|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0250|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0260|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0270|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0280|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0290|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       02a0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       02b0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       02c0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       02d0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       02e0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       02f0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0300|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0310|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0320|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0330|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0340|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0350|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0360|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0370|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0380|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0390|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       03a0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       03b0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       03c0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       03d0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       03e0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       03f0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0400|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0410|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0420|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0430|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0440|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0450|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0460|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0470|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0480|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0490|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       04a0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       04b0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       04c0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       04d0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       04e0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       04f0|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0500|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0510|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 17   17 17 17 17 17 ffffffff ffffffff ffffffff 
+       0520|  17 17 17 17 ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 17 
+       0530|  17 17 17 17 ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff 17 17 17 17 17 
+       0540|  17 ffffffff 17 17 ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0550|  17 17 17 17 17 ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0560|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+       0570|  ffffffff 17 17 ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
