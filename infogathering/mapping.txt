@@ -1,0 +1,27 @@
+
+these might be interesting i guess?
+
+
+  50:	0x03 0x42 0x74 0x00
+  51:	0x0a 0x0b 0xc5 0x0c 0x7a 0x0d 0x50 0x00 0x00 0x00 0x0f
+  52:	0x08 0x01 0xfa 0xee 0x08 0x00 0x00 0x00 0x80
+  53:	0x07 0x00 0x00 0x00 0x00 0x00 0x00 0x5f
+  54:	0x0d 0x00 0x4b 0x00 0x00 0xc0 0x10 0x10 0x08 0x00 0x00 0x04 0x40 0x00
+
+
+assuming that they still somehow stick to the specs,
+i guess i should zero out these:
+
+  50:	0x03 0x42
+  51:	0x0a 0x0b
+  52:	0x08 0x01
+  53:	0x07 0x00
+
+time to enter boot rom mode again?
+because in what i thought would be full access mode, i won't let me write nothing...
+or, ok, i also did not quite understand yet how to write stuff, so, a word write command
+to an address obviously does not write that word, but rather executes a command...
+the datasheet somehow suggets that you first specify the address you want to write to by writing to one address,
+ and then issue the actual write command by writing to another, i guess i have to read some datasheets again...
+or, simplified, if i want to write to address c, i first have to word write the address of c to b, then a write command + the 
+data i want to write to a? using i2ctransfer? so, might 0x40 be that address a?
