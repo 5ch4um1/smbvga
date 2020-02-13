@@ -121,3 +121,18 @@ now, this looks interesting:
        0550|  17 17 17 17 17 ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
        0560|  ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
        0570|  ffffffff 17 17 ffffffff ffffffff ffffffff ffffffff ffffffff   ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff ffffffff 
+
+
+
+
+and this too: 
+
+  sudo i2cdump -y 1 0x0b w 
+       0,8  1,9  2,a  3,b  4,c  5,d  6,e  7,f
+  00: 1717 8e03 ef60 4b04 1717 1717 1717 1717 
+  08: 1717 1717 1717 0002 0220 0301 679a 1717 
+  10: 1717 1717 1717 1717 1717 1717 1717 1717 
+  18: 1717 1717 1717 0000 XXXX XXXX XXXX XXXX 
+  20: XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX
+  
+  
