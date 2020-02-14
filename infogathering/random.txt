@@ -6,3 +6,21 @@ need to charge again and check that by plugging out the power supply!
 or maybe it just took it some time to realize: duuude, that battery has so many failure flags lit, if i don't 
 shut down immediately, everything 's gonna explode? but then, what took it so long to realize that? :D 
 
+at the moement i'm hitting some sort of brick wall... information is scarse and mostly proprietary,
+i try stuff that i find in datasheets, but things won't work.
+it's a bit like: the more you learn, the less you know...
+also i'm not so sure anymore if what i enter by writing 0517 to 70 really is the boot rom mode?
+first time i plugged it into my laptop in this mode, it almost shut down immediately.
+the second time, it took a bit longer. maybe because it was actually running off the battery?
+
+i'd still love to see what laptop and battery talk to each other...
+my mic-in sucks... 
+i wonder if i could use my rtl-sdr? also only one channel then, but a much better sample rate?
+no idea of electronics, i guess i'd need to put a huge ass resistor between the sdr and the bus?
+just plug a extra piece of copper wire into the the connectors on the battery side to work as a sending antenna
+and then get the recieving antenna as close as needed? tempest over i2c? :D xD ;P  
+
+current strategies include reading russian electronics forums with google translate, blet...
+amazing people, they got the spirit! :)
+
+
