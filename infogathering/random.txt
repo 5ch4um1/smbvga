@@ -11,7 +11,8 @@ i try stuff that i find in datasheets, but things won't work.
 it's a bit like: the more you learn, the less you know...
 also i'm not so sure anymore if what i enter by writing 0517 to 70 really is the boot rom mode?
 first time i plugged it into my laptop in this mode, it almost shut down immediately.
-the second time, it took a bit longer. maybe because it was actually running off the battery?
+the second time, it took a bit longer. maybe because it was actually running off the battery,
+and i had charged it externally in the meantime?
 
 i'd still love to see what laptop and battery talk to each other...
 my mic-in sucks... 
