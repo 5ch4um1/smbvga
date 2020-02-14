@@ -6,13 +6,19 @@ need to charge again and check that by plugging out the power supply!
 or maybe it just took it some time to realize: duuude, that battery has so many failure flags lit, if i don't 
 shut down immediately, everything 's gonna explode? but then, what took it so long to realize that? :D 
 
-at the moement i'm hitting some sort of brick wall... information is scarse and mostly proprietary,
+at the moment i'm hitting some sort of brick wall... information is scarse and mostly proprietary,
 i try stuff that i find in datasheets, but things won't work.
 it's a bit like: the more you learn, the less you know...
 also i'm not so sure anymore if what i enter by writing 0517 to 70 really is the boot rom mode?
 first time i plugged it into my laptop in this mode, it almost shut down immediately.
 the second time, it took a bit longer. maybe because it was actually running off the battery,
 and i had charged it externally in the meantime?
+So, this mode seems interesting, it still shows the manufacturer name (a different one) but the addresses
+where those failure flags are stored seem to be not readable. well, this includes what i suppose to be
+battery status, not sure if this is a good thing... anyway, i'd like to get the voltage above 10v and see
+if this maybe automagically opens a fet that might have been closed before?
+all just guessing, i don't even have a multimeter, and if so, i lack knowledge in electronics, so i wouldn't
+know where to measure... still would be a nice thing to have i guess...
 
 i'd still love to see what laptop and battery talk to each other...
 my mic-in sucks... 
