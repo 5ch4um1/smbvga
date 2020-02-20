@@ -7,7 +7,7 @@ there are these guys over at the kali forum who did some eeprom hacking to get a
 https://forums.kali.org/showthread.php?28874-ALFA-AWUS036NHA-hacking-EEPROM-via-UART-JTAG&highlight=ar9271
 
 so, if i understand that right, that ar9271 is a small computer that loads it's operating system(?) aka firmware from that
-eeprom? or, is ist more like some configuration values? there is this issue which sounds SUPER interesting: 
+eeprom? or, is it more like some configuration values? there is this issue which sounds SUPER interesting: 
 
 https://github.com/qca/open-ath9k-htc-firmware/issues/44
 
