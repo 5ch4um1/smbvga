@@ -1,0 +1,28 @@
+ok, so i took a closer look at the flasher tool of smbusb.
+the fact that it reports the exact same boot rom version seems promising.
+
+then i tried to understand readEepromBlock.
+
+if i do e.g.
+
+sudo i2cset -y 1 0x0b 0x09 0x4064 w
+
+a subsequent 
+
+sudo i2ctransfer -y 1 w1@0x0b 0x0c r33
+
+would give me: 
+
+0x20 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0x30 0xfc 0xc5 0x12
+
+
+but this somehow doesn't look familiar. 
+
+i thought EEPROM_BASE_ADDR+(blockNr*32)
+
+would mean something like 0x4000 + ("whatever blockNr refers to" x 32) 
+so, if i write 4128 to 09 and then read from 0c, i should get the 4th block? 4th block from where?
+
+
+anyway, if i write different stuff, i get different results. time for some more trial and error...
+
