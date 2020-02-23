@@ -1,6 +1,16 @@
 random info:
 
-when i turned it into boot rom mode (or maybe it was in another, like, error mode?) and then plugged it into the laptop,
+when i turned it into boot rom mode (or maybe it was in another, like, error mode?)
+
+[ edit regarding the boot rom mode, i tried to read a bit of the code of the flasher tool from smbusb and tried to
+implement the part where it checks the boot rom version with i2cget, and it actually gives me 3.1, so i guess that 
+might suggest that this really is boot rom mode and it is running the same boot rom version like in the blog post.
+so, i guess writing should also work, only problem so far, i don't know how to make i2ctool accept addresses higher than 0xff, i read somewhere that bigger devices should then show up with more addresses on the bus, the eeprom on the ar9271
+behaved like that. But i guess since this eeprom is somehow "integrated", it means i am talking only to the ec, and the ec talks to the eeprom or what? and when i enter boot rom mode, it simply exposes more of that eeprom? and so the part i am interested in would be at another offset now? well, i'll take another look at that flasher tool and see if i can understand what it does and if i can replicate that with i2ctools... ] 
+
+
+
+and then plugged it into the laptop,
 the laptop turned off after a few seconds, so i guess it was running from battery?
 need to charge again and check that by plugging out the power supply!
 or maybe it just took it some time to realize: duuude, that battery has so many failure flags lit, if i don't 
