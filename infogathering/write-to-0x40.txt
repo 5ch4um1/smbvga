@@ -1,3 +1,7 @@
+  EDIT:
+  funny to read this again. by now, i tend to believe that 0x40 resembles SetAddr from boot rom mode. together with 0x42 (PeekByte) and 0x43 (ReadRamBlk or whatever it was called, don't remember at the moment, that 0x0c thing in boot rom mode)
+  or, at least these somehow behave similar. 
+  __________________________________________________________________________________________________________________
   i can write stuff to 0x40.
   this effectively changes the manufacturer name. 
   i tried different things:
