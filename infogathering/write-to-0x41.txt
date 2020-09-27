@@ -1,3 +1,0 @@
-doing a word write to 0x41 like e.g. 0x0053 actually writes 53 to 0x42 and 0x43, like:  0x0053 0x5300
-but only to those two. i thought like: hey, maybe this sets the address i want to actually write to.
-but no progress here so far, i tried to write a lot to other addresses like 0x40, 0x60, 0x70, 0x71, but nothing... 
