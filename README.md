@@ -60,4 +60,4 @@ after that, if you want to change again, you'd need to edit ./setup.sh
 I recently got a cheap fx2 based logic analyzer, turns out you can run karosiums tools just fine on these, just had to abuse the eeprom on that thing as an 
 i2c breakout, but it works and i was able to get dumps of both the program memory and the eeprom data.
 Thanks to that i was able to spot an error in a script i wrote about a year ago, so, prgdump.sh should now dump the program memory if you are in boot rom mode.
-By adjusting the start and stop address, this should be able to dump the eeprom data too iirc. 
+By adjusting the start and stop address, this should be able to dump the eeprom data too iirc. (edit: i did not remember correctly, for the eeprom it's a word write, to another address, and read from another address too, just see for yourself, added dumpeep.sh now.)  
