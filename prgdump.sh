@@ -5,10 +5,12 @@ for ((i=0;i<=max;i++))
 do
   y=$(printf "%#.4x\n" $i)
 
+#ugly hack i guess, feel free to fix this:
 if [[ $y == 0000 ]]
 then
 y=$(echo "0x0000")
 fi
+
 
 a=$(echo $y | cut -c3- | awk ' {gsub(/.{2}/,"& ")}1'| awk ' {print  "0x"$2, "0x"$1}')
 
